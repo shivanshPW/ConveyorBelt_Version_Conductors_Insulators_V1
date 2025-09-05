@@ -1,0 +1,282 @@
+{
+  "game_template": "Conveyor Classifier",
+  "topic": "Acids, Bases, and Salts",
+  "total_levels": 3,
+  "max_total_xp": 200,
+  
+  "levels": [
+    {
+      "level": 1,
+      "objective_text": "Sort substances into Acid, Base, or Neutral beakers!",
+      "conveyor_speed_modifier": 0.5,
+      "total_items_in_level": 10,
+      "item_spawn_interval_seconds": 6,
+      "xp_per_correct": 5,
+      "xp_per_incorrect": -2,
+      "combo_bonus_xp": 0,
+      "target_xp": 50,
+      "reactor": 0,
+
+      "containers": [
+        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
+        { "name": "INSULATORS", "id": "INSULATORS" }
+      ],
+
+      "items": [
+        {
+          "id": "Cu",
+          "display_text": "Cu",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "rubber",
+          "display_text": "rubber",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "IronNail",
+          "display_text": "IronNail",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "ruler",
+          "display_text": "plastic ruler",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "Al foil",
+          "display_text": "Aluminium foil",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "wood",
+          "display_text": "wood",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "Graphite",
+          "display_text": "Graphite",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "GlassRod",
+          "display_text": "GlassRod",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "SteelSpoon",
+          "display_text": "spoon",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "PaperClip",
+          "display_text": "PaperClip",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "NAME"
+        }
+      ]
+    },
+
+    {
+      "level": 2,
+      "objective_text": "Observe the reactions and sort substances correctly!",
+      "conveyor_speed_modifier": 0.7,
+      "total_items_in_level": 10,
+      "item_spawn_interval_seconds": 5,
+      "xp_per_correct": 7,
+      "xp_per_incorrect": -3,
+      "combo_bonus_xp": 0,
+      "target_xp": 70,
+      "reactor": 1,
+
+      "containers": [
+        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
+        { "name": "INSULATORS", "id": "INSULATORS" }
+      ],
+      "items": [
+        {
+          "id": "SaltSoln",
+          "display_text": "Salt Solution",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "NO_REACTION"
+        },
+        {
+          "id": "Water",
+          "display_text": "Distilled H2O",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "NO_REACTION"
+        },
+        {
+          "id": "Ag",
+          "display_text": "Silver",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "hint_text": "No litmus change?"
+        },
+        {
+          "id": "yarn",
+          "display_text": "Yarn",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "PH_INDICATOR_RED"
+        },
+        {
+          "id": "gold",
+          "display_text": "Gold",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "PH_INDICATOR_BLUE"
+        },
+        {
+          "id": "Plate",
+          "display_text": "Ceramic",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "PH_INDICATOR_GREEN"
+        },
+        {
+          "id": "Lemon",
+          "display_text": "Lemon",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "hint_text": "Sour taste indicator?"
+        },
+        {
+          "id": "Cloth",
+          "display_text": "Cotton Cloth",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "hint_text": "Bitter taste indicator?"
+        },
+        {
+          "id": "Hg",
+          "display_text": "Liquid Metal",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "NO_REACTION"
+        },
+        {
+          "id": "Air",
+          "display_text": "  AIR  ",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "METAL_BUBBLES"
+        }
+      ]
+    },
+
+    {
+      "level": 3,
+      "objective_text": "Expert sorting: Identify weak and strong acids/bases by image alone!",
+      "conveyor_speed_modifier": 0.8,
+      "total_items_in_level": 10,
+      "item_spawn_interval_seconds": 9,
+      "xp_per_correct": 8,
+      "xp_per_incorrect": -4,
+      "combo_bonus_xp": 0,
+      "target_xp": 80,
+      "reactor": 0,
+
+      "containers": [
+        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
+        { "name": "INSULATORS", "id": "INSULATORS" }
+        ],
+
+      "items": [
+        {
+          "id": "electricalPole",
+          "display_text": "",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "SolderWire",
+          "display_text": "",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "SiliconWafer",
+          "display_text": "",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Rubber",
+          "display_text": "",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "CircuitBoard",
+          "display_text": "",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "outlet",
+          "display_text": "",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "lightningRod",
+          "display_text": "",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Wood",
+          "display_text": "",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "magnet",
+          "display_text": "",
+          "correct_category_name": "CONDUCTORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "opticCabel",
+          "display_text": "",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "wetsuit",
+          "display_text": "",
+          "correct_category_name": "FULLY-SYNTHETIC",
+          "presentation_mode": "IMAGE_ONLY"
+        }
+      ]
+    }
+  ],
+
+  "star_rating_thresholds": {
+    "3_stars": 0.8,
+    "2_stars": 0.5,
+    "1_star": 0.0
+  },
+
+  "reaction_types_available": [
+    "LITMUS_RED",
+    "LITMUS_BLUE", 
+    "PH_INDICATOR_RED",
+    "PH_INDICATOR_BLUE",
+    "PH_INDICATOR_GREEN",
+    "METAL_BUBBLES",
+    "NO_REACTION"
+  ]
+}
