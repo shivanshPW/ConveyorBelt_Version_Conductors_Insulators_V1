@@ -9,7 +9,7 @@
       "level": 1,
       "objective_text": "Sort substances into Acid, Base, or Neutral beakers!",
       "conveyor_speed_modifier": 0.5,
-      "total_items_in_level": 1,
+      "total_items_in_level": 10,
       "item_spawn_interval_seconds": 6,
       "xp_per_correct": 5,
       "xp_per_incorrect": -2,
@@ -89,7 +89,7 @@
     {
       "level": 2,
       "objective_text": "Observe the reactions and sort substances correctly!",
-      "conveyor_speed_modifier": 0.55,
+      "conveyor_speed_modifier": 0.5,
       "total_items_in_level": 10,
       "item_spawn_interval_seconds": 5,
       "xp_per_correct": 7,
@@ -179,7 +179,7 @@
     {
       "level": 3,
       "objective_text": "Expert sorting: Identify weak and strong acids/bases by image alone!",
-      "conveyor_speed_modifier": 0.55,
+      "conveyor_speed_modifier": 0.5,
       "total_items_in_level": 10,
       "item_spawn_interval_seconds": 9,
       "xp_per_correct": 8,
