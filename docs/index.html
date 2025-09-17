@@ -6,145 +6,209 @@
     <title>Unity Web Player | Shorted</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <style>
-      /* --- CORE LAYOUT STYLES --- */
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
+      
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      
       html, body {
-        background: #000;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+          background: #000; /* Black background for letterboxing */
+          font-family: 'Roboto', sans-serif;
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
       }
+
+      /* Main container organizes the entire page layout */
+      #page-container {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          background: linear-gradient(135deg, #3a4374 0%, #232942 100%);
+      }
+      
+      /* --- START: STYLES COPIED FROM EXAMPLE --- */
+      #controls {
+          background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 42, 42, 0.95) 100%);
+          padding: 12px 25px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+          border-bottom: 2px solid rgba(102, 126, 234, 0.5);
+          backdrop-filter: blur(10px);
+          z-index: 10;
+          flex-shrink: 0; /* Prevents the bar from shrinking */
+      }
+      
+      .title-section { display: flex; align-items: center; gap: 15px; }
+      
+      .game-logo {
+          width: 35px; height: 35px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border-radius: 8px; display: flex; align-items: center;
+          justify-content: center; font-size: 22px; color: white;
+          box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+      }
+      
+      .game-title {
+          color: white; font-family: 'Bebas Neue', cursive;
+          font-size: 28px; letter-spacing: 2px;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      }
+      
+      .btn-group { display: flex; gap: 15px; align-items: center; }
+      
+      button {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white; border: none; padding: 10px 20px;
+          border-radius: 25px; cursor: pointer; font-size: 14px;
+          font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+          display: flex; align-items: center;
+      }
+      
+      button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+      }
+      
+      .btn-secondary {
+          background: rgba(255, 255, 255, 0.1);
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      .btn-secondary:hover { background: rgba(255, 255, 255, 0.2); }
+      .icon { font-size: 16px; margin-right: 8px; }
+      /* --- END: STYLES COPIED FROM EXAMPLE --- */
+
+      /* The unity container now grows to fill available space and centers the canvas */
       #unity-container {
-        position: relative;
-      }
-      #unity-canvas {
-        width: 100%;
-        height: 100%;
-        background: #000;
-      }
-      #unity-build-title { display: none; }
-      #unity-loading-bar {
-        /* The default loading bar is replaced by our custom overlay */
-        display: none;
-      }
-
-      /* --- UNIFIED STATUS OVERLAY (Handles Loading and Start) --- */
-      #status-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
+        flex: 1; /* Allows the container to grow */
+        min-height: 0; /* Necessary for flex-grow in some browsers */
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: Arial, sans-serif;
-        font-size: 2em;
-        z-index: 99;
-        cursor: default; /* Not clickable until loading is finished */
+      }
+      
+      #unity-canvas {
+        /* The width and height are set by the letterboxing script */
+        background: #000;
       }
 
-      /* --- ORIENTATION OVERLAY STYLE --- */
-      #orientation-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #000;
-        color: white;
-        display: none; /* Hidden by default */
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        font-family: Arial, sans-serif;
-        font-size: 1.5em;
-        z-index: 100; /* Must be on top of everything */
+      /* When the page is fullscreen, hide the controls bar */
+      #page-container:fullscreen #controls {
+          display: none;
       }
-      #orientation-overlay svg {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 20px;
-        animation: rotate 1.5s ease-in-out infinite;
-      }
-      @keyframes rotate {
-        0% { transform: rotate(0deg); }
-        50% { transform: rotate(-90deg); }
-        100% { transform: rotate(-90deg); }
+
+      /* Loading overlay that replaces the old "Tap to Start" */
+      #loading-overlay {
+          position: fixed; top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: rgba(0, 0, 0, 0.8); color: white;
+          display: flex; justify-content: center; align-items: center;
+          font-family: Arial, sans-serif; font-size: 2em; z-index: 99;
       }
     </style>
   </head>
   <body>
-    <!-- Unified Overlay for Loading and "Tap to Start" -->
-    <div id="status-overlay">
-      <div id="status-text">Loading... 0%</div>
+    <div id="page-container">
+      <!-- The new controls bar -->
+      <div id="controls">
+          <div class="title-section">
+              <div class="game-logo">🎮</div>
+              <h1 class="game-title">Shorted</h1>
+          </div>
+          <div class="btn-group">
+              <button id="fullscreen-button" onclick="toggleFullscreen()">
+                  <span class="icon">⛶</span><span>Fullscreen</span>
+              </button>
+              <button class="btn-secondary" onclick="restartGame()">
+                  <span class="icon">🔄</span><span>Restart</span>
+              </button>
+          </div>
+      </div>
+
+      <!-- Unity game content area -->
+      <div id="unity-container">
+        <canvas id="unity-canvas" width=1920 height=1080 tabindex="-1"></canvas>
+        <div id="unity-warning"></div>
+      </div>
     </div>
 
-    <!-- The Orientation Lock Overlay -->
-    <div id="orientation-overlay">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M16.49,4.26l-1.42,1.42c1.9,1.9,1.9,5.0,0,6.9s-5.0,1.9-6.9,0l-1.42,1.42c2.6,2.6,6.9,2.6,9.6,0s2.6-6.9,0-9.6zM20.49,0.26l-1.42,1.42c3.7,3.7,3.7,9.7,0,13.4s-9.7,3.7-13.4,0l-1.42,1.42c4.5,4.5,11.8,4.5,16.3,0s4.5-11.8,0-16.3zM7.51,4.26c-2.6,2.6-2.6,6.9,0,9.6s6.9,2.6,9.6,0l1.42-1.42c-3.4-3.4-8.8-3.4-12.2,0l1.19,1.19L0,15.15l1.5-7.58,1.19,1.19z"/></svg>
-        <p>Please rotate your device</p>
+    <!-- The loading overlay (replaces "Tap to Start") -->
+    <div id="loading-overlay">
+      <div id="loading-text">Loading... 0%</div>
     </div>
-
-    <div id="unity-container">
-      <!-- Set the canvas base resolution to your target 1920x1080 -->
-      <canvas id="unity-canvas" width=1920 height=1080 tabindex="-1"></canvas>
-      <!-- The default loading bar and footer are no longer needed -->
-      <div id="unity-warning"></div>
-    </div>
-
+    
     <script>
+      // --- ELEMENT SELECTORS ---
+      var pageContainer = document.querySelector("#page-container");
       var unityContainer = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
-      var statusOverlay = document.querySelector("#status-overlay");
-      var statusText = document.querySelector("#status-text");
-      var orientationOverlay = document.querySelector("#orientation-overlay");
+      var loadingOverlay = document.querySelector("#loading-overlay");
+      var loadingText = document.querySelector("#loading-text");
 
-      // --- ORIENTATION CHECK LOGIC ---
-      function checkOrientation() {
-        if (window.innerHeight > window.innerWidth) {
-          orientationOverlay.style.display = 'flex';
-        } else {
-          orientationOverlay.style.display = 'none';
-        }
+      // --- START: NEW FUNCTIONS FROM EXAMPLE ---
+      function toggleFullscreen() {
+          if (!document.fullscreenElement) {
+              pageContainer.requestFullscreen().catch(err => {
+                  alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+              });
+          } else {
+              document.exitFullscreen();
+          }
       }
-      window.addEventListener('resize', checkOrientation);
-      window.addEventListener('orientationchange', checkOrientation);
-      checkOrientation(); // Initial check
 
-      function unityShowBanner(msg, type) {
-        var warningBanner = document.querySelector("#unity-warning");
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
+      function restartGame() {
+          // The simplest and most reliable way to restart a WebGL game
+          location.reload();
       }
+      // --- END: NEW FUNCTIONS FROM EXAMPLE ---
+
+      // --- SCALING AND LETTERBOXING LOGIC (Adapted) ---
+      function applyLetterboxing() {
+          const targetAspectRatio = 1920 / 1080;
+          // We measure the container, which has the available space after the controls bar
+          let containerWidth = unityContainer.offsetWidth;
+          let containerHeight = unityContainer.offsetHeight;
+          let containerAspectRatio = containerWidth / containerHeight;
+          
+          let newWidth, newHeight;
+
+          if (containerAspectRatio > targetAspectRatio) {
+              newHeight = containerHeight;
+              newWidth = newHeight * targetAspectRatio;
+          } else {
+              newWidth = containerWidth;
+              newHeight = newWidth / targetAspectRatio;
+          }
+          
+          // Apply the calculated size to the canvas itself
+          canvas.style.width = newWidth + 'px';
+          canvas.style.height = newHeight + 'px';
+      }
+
+      window.addEventListener('resize', applyLetterboxing);
+      window.addEventListener('orientationchange', applyLetterboxing);
+
+      function unityShowBanner(msg, type) { /* ... This can be left empty or implemented if you need banner messages ... */ }
 
       var buildUrl = "Build";
-      // --- UPDATED FILENAMES FOR "ConductorsOrNot" ---
+      // === IMPORTANT: THESE ARE THE FILE PATHS FROM YOUR LATEST FILE ===
       var loaderUrl = buildUrl + "/ConductorsOrNot.loader.js";
       var config = {
         arguments: [],
         dataUrl: buildUrl + "/ConductorsOrNot.data",
         frameworkUrl: buildUrl + "/ConductorsOrNot.framework.js",
         codeUrl: buildUrl + "/ConductorsOrNot.wasm",
+        // === END OF IMPORTANT CHANGES ===
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Shorted",
@@ -152,62 +216,42 @@
         showBanner: unityShowBanner,
       };
 
-      // --- VIEWPORT & ASPECT RATIO LOGIC ---
       var meta = document.createElement('meta');
       meta.name = 'viewport';
       meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
       document.getElementsByTagName('head')[0].appendChild(meta);
-      
-      function resizeGameContainer() {
-        const targetAspectRatio = 1920 / 1080;
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        let windowAspectRatio = width / height;
-        if (windowAspectRatio > targetAspectRatio) {
-          width = height * targetAspectRatio;
-        } else {
-          height = width / targetAspectRatio;
-        }
-        unityContainer.style.width = width + 'px';
-        unityContainer.style.height = height + 'px';
-      }
-      window.addEventListener('resize', resizeGameContainer);
-      resizeGameContainer(); // Initial resize
 
-      // --- UNITY INSTANCE CREATION & LOADING LOGIC ---
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          // Update the text on the overlay with the current loading progress
-          statusText.innerHTML = `Loading... ${Math.round(progress * 100)}%`;
-
+          loadingText.innerHTML = `Loading... ${Math.round(progress * 100)}%`;
         }).then((unityInstance) => {
-          // --- GAME IS LOADED, PREPARE FOR START ---
-          
-          // 1. Change text to "Tap to Start"
-          statusText.innerHTML = "Tap to Start";
-
-          // 2. Make the overlay look clickable
-          statusOverlay.style.cursor = 'pointer';
-          
-          // 3. Add the click listener that will start the game in fullscreen
-          statusOverlay.addEventListener('click', () => {
-            // Hide the overlay
-            statusOverlay.style.display = 'none';
-            // Request fullscreen
-            unityInstance.SetFullscreen(1);
-          }, { once: true }); // '{ once: true }' is important, it makes the listener fire only once
-
+          // Game is loaded, just hide the overlay
+          loadingOverlay.style.display = 'none';
         }).catch((message) => {
           alert(message);
         });
       };
+      
+      // Update button text based on fullscreen state
+      document.addEventListener('fullscreenchange', () => {
+          const fullscreenButton = document.getElementById('fullscreen-button');
+          if (document.fullscreenElement) {
+              fullscreenButton.innerHTML = '<span class="icon">❎</span><span>Exit</span>';
+          } else {
+              fullscreenButton.innerHTML = '<span class="icon">⛶</span><span>Fullscreen</span>';
+          }
+          // Re-calculate letterboxing after a small delay to allow the DOM to update
+          setTimeout(applyLetterboxing, 100);
+      });
+
+      // Initial setup calls before loading starts
+      applyLetterboxing(); 
       document.body.appendChild(script);
     </script>
   </body>
 </html>
-
 
 <!-- <!DOCTYPE html>
 <html lang="en-us">
