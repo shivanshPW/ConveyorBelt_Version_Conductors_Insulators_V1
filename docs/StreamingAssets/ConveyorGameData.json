@@ -253,12 +253,6 @@
           "display_text": "",
           "correct_category_name": "INSULATORS",
           "presentation_mode": "IMAGE_ONLY"
-        },
-        {
-          "id": "wetsuit",
-          "display_text": "",
-          "correct_category_name": "FULLY-SYNTHETIC",
-          "presentation_mode": "IMAGE_ONLY"
         }
       ]
     }
