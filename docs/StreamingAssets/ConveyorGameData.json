@@ -9,7 +9,7 @@
       "level": 1,
       "objective_text": "Sort substances into Acid, Base, or Neutral beakers!",
       "conveyor_speed_modifier": 0.5,
-      "total_items_in_level": 10,
+      "total_items_in_level": 1,
       "item_spawn_interval_seconds": 6,
       "xp_per_correct": 5,
       "xp_per_incorrect": -2,
@@ -18,8 +18,8 @@
       "reactor": 0,
 
       "containers": [
-        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
-        { "name": "INSULATORS", "id": "INSULATORS" }
+        { "name": "CONDUCTOR", "id": "CONDUCTORS" },
+        { "name": "INSULATOR", "id": "INSULATORS" }
       ],
 
       "items": [
@@ -90,7 +90,7 @@
       "level": 2,
       "objective_text": "Observe the reactions and sort substances correctly!",
       "conveyor_speed_modifier": 0.7,
-      "total_items_in_level": 10,
+      "total_items_in_level": 1,
       "item_spawn_interval_seconds": 5,
       "xp_per_correct": 7,
       "xp_per_incorrect": -3,
@@ -99,8 +99,8 @@
       "reactor": 1,
 
       "containers": [
-        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
-        { "name": "INSULATORS", "id": "INSULATORS" }
+        { "name": "CONDUCTOR", "id": "CONDUCTORS" },
+        { "name": "INSULATOR", "id": "INSULATORS" }
       ],
       "items": [
         {
@@ -180,7 +180,7 @@
       "level": 3,
       "objective_text": "Expert sorting: Identify weak and strong acids/bases by image alone!",
       "conveyor_speed_modifier": 0.8,
-      "total_items_in_level": 10,
+      "total_items_in_level": 1,
       "item_spawn_interval_seconds": 9,
       "xp_per_correct": 8,
       "xp_per_incorrect": -4,
@@ -189,8 +189,8 @@
       "reactor": 0,
 
       "containers": [
-        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
-        { "name": "INSULATORS", "id": "INSULATORS" }
+        { "name": "CONDUCTOR", "id": "CONDUCTORS" },
+        { "name": "INSULATOR", "id": "INSULATORS" }
         ],
 
       "items": [
