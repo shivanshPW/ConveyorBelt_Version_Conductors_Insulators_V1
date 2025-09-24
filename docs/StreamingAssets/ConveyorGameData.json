@@ -26,61 +26,61 @@
         {
           "id": "Cu",
           "display_text": "Cu",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "rubber",
           "display_text": "rubber",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "IronNail",
           "display_text": "IronNail",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "ruler",
           "display_text": "plastic ruler",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "Al foil",
           "display_text": "Aluminium foil",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "wood",
           "display_text": "wood",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "Graphite",
           "display_text": "Graphite",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "GlassRod",
           "display_text": "GlassRod",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "SteelSpoon",
           "display_text": "spoon",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "NAME"
         },
         {
           "id": "PaperClip",
           "display_text": "PaperClip",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "NAME"
         }
       ]
@@ -106,70 +106,70 @@
         {
           "id": "SaltSoln",
           "display_text": "Salt Solution",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
           "id": "Water",
           "display_text": "Distilled H2O",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
           "id": "Ag",
           "display_text": "Silver",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "No litmus change?"
         },
         {
           "id": "yarn",
           "display_text": "Yarn",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_RED"
         },
         {
           "id": "gold",
           "display_text": "Gold",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_BLUE"
         },
         {
           "id": "Plate",
           "display_text": "Ceramic",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_GREEN"
         },
         {
           "id": "Lemon",
           "display_text": "Lemon",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "Sour taste indicator?"
         },
         {
           "id": "Cloth",
           "display_text": "Cotton Cloth",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "Bitter taste indicator?"
         },
         {
           "id": "Hg",
           "display_text": "Liquid Metal",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
           "id": "Air",
           "display_text": "  AIR  ",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "METAL_BUBBLES"
         }
@@ -197,61 +197,61 @@
         {
           "id": "electricalPole",
           "display_text": "",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "SolderWire",
           "display_text": "",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "SiliconWafer",
           "display_text": "",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "Rubber",
           "display_text": "",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "CircuitBoard",
           "display_text": "",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "outlet",
           "display_text": "",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "lightningRod",
           "display_text": "",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "Wood",
           "display_text": "",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "magnet",
           "display_text": "",
-          "correct_category_name": "CONDUCTORS",
+          "correct_category_name": "CONDUCTOR",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "opticCabel",
           "display_text": "",
-          "correct_category_name": "INSULATORS",
+          "correct_category_name": "INSULATOR",
           "presentation_mode": "IMAGE_ONLY"
         }
       ]
