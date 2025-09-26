@@ -18,8 +18,8 @@
       "reactor": 0,
 
       "containers": [
-        { "name": "CONDUCTOR", "id": "CONDUCTORS" },
-        { "name": "INSULATOR", "id": "INSULATORS" }
+        { "name": "INSULATOR", "id": "INSULATORS" },
+        { "name": "CONDUCTOR", "id": "CONDUCTORS" }
       ],
 
       "items": [
@@ -99,8 +99,8 @@
       "reactor": 1,
 
       "containers": [
-        { "name": "CONDUCTOR", "id": "CONDUCTORS" },
-        { "name": "INSULATOR", "id": "INSULATORS" }
+        { "name": "INSULATOR", "id": "INSULATORS" },
+        { "name": "CONDUCTOR", "id": "CONDUCTORS" }
       ],
       "items": [
         {
